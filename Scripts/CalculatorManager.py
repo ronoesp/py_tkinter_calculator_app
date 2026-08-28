@@ -587,6 +587,11 @@ class CalculatorManager():
 # ===========================================================
 
     def normalize_str(self):
-        self.param.result = nf.normalize_num(self.param.result, self.num_length_limit)
-        self.param.dataA_str = nf.normalize_num(self.param.dataA_str, self.num_length_limit)
-        self.param.dataB_str = nf.normalize_num(self.param.dataB_str, self.num_length_limit)
+        # 空欄をnormalize_num関数に渡さないようにする（Decimal関数に空欄が渡されてエラーとなるため）
+        if self.param.result != "":
+            self.param.result = nf.normalize_num(self.param.result, self.num_length_limit)
+        if self.param.dataA_str != "":
+            self.param.dataA_str = nf.normalize_num(self.param.dataA_str, self.num_length_limit)
+        if self.param.dataB_str != "":
+            self.param.dataB_str = nf.normalize_num(self.param.dataB_str, self.num_length_limit)
+        
