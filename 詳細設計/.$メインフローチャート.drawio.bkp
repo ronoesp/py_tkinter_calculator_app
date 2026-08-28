@@ -1,0 +1,82 @@
+<mxfile host="Electron">
+  <diagram name="ページ-1" id="S4afQALqrFCDWy6LkhH0">
+    <mxGraphModel dx="971" dy="607" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-6" edge="1" parent="1" source="E1YGUA7XmyxAcSx3jpKH-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="E1YGUA7XmyxAcSx3jpKH-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" value="開始&lt;div&gt;main&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="100" x="114" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-7" edge="1" parent="1" source="E1YGUA7XmyxAcSx3jpKH-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="E1YGUA7XmyxAcSx3jpKH-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;tkinterによるGUI作成&lt;/span&gt;&lt;/div&gt;&lt;div&gt;・ウィンドウ：作成＆設定&lt;/div&gt;&lt;div&gt;・ラベル　　：作成＆設定&lt;/div&gt;&lt;div&gt;・ボタン　　：作成＆設定&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="84" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="tk.mainloop()" vertex="1">
+          <mxGeometry height="30" width="120" x="104" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-5" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" value="終了" vertex="1">
+          <mxGeometry height="60" width="100" x="114" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-8" edge="1" parent="1" source="E1YGUA7XmyxAcSx3jpKH-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="E1YGUA7XmyxAcSx3jpKH-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="GUIクラスの主な処理" vertex="1">
+          <mxGeometry height="40" width="170" x="74" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="GUI" vertex="1">
+          <mxGeometry height="40" width="90" x="380" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-32" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Manager" vertex="1">
+          <mxGeometry height="40" width="90" x="582.5" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="System" vertex="1">
+          <mxGeometry height="40" width="90" x="807.5" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Parameter" vertex="1">
+          <mxGeometry height="40" width="90" x="1020" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-41" edge="1" parent="1" source="E1YGUA7XmyxAcSx3jpKH-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="E1YGUA7XmyxAcSx3jpKH-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-35" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ボタンが押される" vertex="1">
+          <mxGeometry height="30" width="120" x="365" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-40" edge="1" parent="1" source="E1YGUA7XmyxAcSx3jpKH-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="E1YGUA7XmyxAcSx3jpKH-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-36" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" value="開始&lt;div&gt;push_button&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="100" x="375" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-43" edge="1" parent="1" source="E1YGUA7XmyxAcSx3jpKH-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="E1YGUA7XmyxAcSx3jpKH-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;order に押された&lt;/span&gt;&lt;div&gt;ボタンの情報が入る&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-46" edge="1" parent="1" source="E1YGUA7XmyxAcSx3jpKH-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="E1YGUA7XmyxAcSx3jpKH-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;order が引き数で渡される&lt;/span&gt;&lt;div&gt;parameter と order から&lt;/div&gt;&lt;div&gt;処理を分岐&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="155" x="550" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-44" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="渡された parameter から&lt;div&gt;処理を実行&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="165" x="770" y="322.5" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;parameter が更新される&lt;/div&gt;" vertex="1">
+          <mxGeometry height="55" width="165" x="982.5" y="322.5" as="geometry" />
+        </mxCell>
+        <mxCell id="E1YGUA7XmyxAcSx3jpKH-48" edge="1" parent="1" source="E1YGUA7XmyxAcSx3jpKH-44" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="E1YGUA7XmyxAcSx3jpKH-47" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="840" y="420" as="sourcePoint" />
+            <mxPoint x="1000" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
