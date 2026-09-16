@@ -117,8 +117,9 @@ class CalculatorManager:
                 is_execute = False
 
     def normalize_str(self):
-        # 空欄をnormalize_num関数に渡さないようにする（Decimal関数に空欄が渡されてエラーとなるため）
-        if self.param.result != "":
+        # 空欄や"err"（エラーを表す内部値）をnormalize_num関数に渡さないようにする
+        # （Decimal関数にこれらを渡すとエラーになるため）
+        if self.param.result not in ("", "err"):
             self.param.result = nf.normalize_num(self.param.result, self.num_length_limit)
         if self.param.dataA_str != "":
             self.param.dataA_str = nf.normalize_num(self.param.dataA_str, self.num_length_limit)
