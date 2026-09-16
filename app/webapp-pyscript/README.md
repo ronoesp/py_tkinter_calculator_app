@@ -26,7 +26,6 @@ calculator_parameter.py 同上
 calculator_system.py  同上
 phase_handlers.py     同上
 commons/
-  __init__.py
   num_formatter.py    同上
 ```
 

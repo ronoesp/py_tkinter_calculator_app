@@ -36,7 +36,6 @@ Tkinterに依存していた `calculator_gui.py` / `gui_parts.py` / `gui_style.p
    ├── calculator_system.py
    ├── phase_handlers.py
    └── commons/
-       ├── __init__.py
        └── num_formatter.py
    ```
 
@@ -59,4 +58,3 @@ python -m http.server 8000
 ## 注意点
 
 - 初回アクセス時、Pyodide本体（Python実行環境）の読み込みに数秒〜十数秒かかります（2回目以降はブラウザキャッシュにより速くなります）。
-- `commons/__init__.py` は空ファイルですが、Pyodide上でパッケージとして正しく認識させるために必要なため追加しています。
