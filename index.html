@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電卓 - ダウンロード・実行</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<main>
+  <header>
+    <div class="badge">=</div>
+    <h1>電卓</h1>
+    <p>使いたい形式を選んでください。すべて同じ計算ロジックを使用しています。</p>
+  </header>
+
+  <div class="cards">
+
+    <div class="card primary">
+      <div class="icon">🖥️</div>
+      <span class="tag">Windows</span>
+      <h2>PC版（インストール）</h2>
+      <p class="desc">
+        Windows用のインストーラーです。インストール後、通常のアプリと同じようにデスクトップから起動できます。
+      </p>
+      <a class="btn" href="https://github.com/ronoesp/py_tkinter_calculator_app/releases/latest">
+        ダウンロード
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <span class="tag">ブラウザで実行</span>
+      <h2>Web版（Pyodide）</h2>
+      <p class="desc">
+        インストール不要。ブラウザだけで動作します。全ての計算処理はブラウザ内で完結するため、他の利用者と同時に使っても影響しません。
+      </p>
+      <a class="btn" href="./webapp-pyodide/">
+        今すぐ使う
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <span class="tag">ブラウザで実行</span>
+      <h2>Web版（PyScript）</h2>
+      <p class="desc">
+        Pyodide版と同じ電卓を、PyScriptというフレームワークで実装した版です。動作・見た目は同じです。
+      </p>
+      <a class="btn" href="./webapp-pyscript/">
+        今すぐ使う
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    ソースコードは <a href="https://github.com/ronoesp/py_tkinter_calculator_app">GitHubリポジトリ</a> で公開しています。
+  </footer>
+</main>
+
+</body>
+</html>

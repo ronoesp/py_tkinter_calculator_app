@@ -1,0 +1,12 @@
+【EXE化コマンド】
+■コマンドプロンプトも開かれる
+cd C:\Users\user\Desktop\Python\■電卓GUIアプリ_Ver1.0\Scripts
+py -m PyInstaller --onefile CalculatorGUI.py
+
+★コマンドプロンプトなし
+cd C:\Users\user\Desktop\Python\■電卓GUIアプリ_Ver1.0\Scripts
+py -m PyInstaller --onefile --noconsole CalculatorGUI.py
+
+☆Iconを変更する
+cd C:\Users\user\Desktop\Python\■電卓GUIアプリ_Ver1.0\Scripts
+py -m PyInstaller --onefile --noconsole --icon="C:\Users\user\Desktop\Python\■電卓GUIアプリ_Ver1.0\_resource\dentaku.ico" CalculatorGUI.py

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電卓（PyScript版）</title>
+
+<link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+<script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+<style>
+  :root {
+    --color-number-bg: #EBFEFF;
+    --color-function-bg: #647879;
+    --color-equal-bg: #0D05D9;
+    --color-disabled-bg: #eeeeee;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray: #aaaaaa;
+    --color-display-bg: #ffffff;
+    --color-display-sub-fg: gray;
+    --color-display-main-fg: #000000;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d9d9d9;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  #calculator {
+    width: 320px;
+    max-width: 92vw;
+    background: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    padding: 14px;
+  }
+
+  #display {
+    background: var(--color-display-bg);
+    border: 2px solid var(--color-black);
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding: 6px 10px;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  #display-sub {
+    font-size: 13px;
+    color: var(--color-display-sub-fg);
+    text-align: right;
+    min-height: 16px;
+    word-break: break-all;
+  }
+
+  #display-main {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--color-display-main-fg);
+    text-align: right;
+    word-break: break-all;
+  }
+
+  #buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  button.calc-btn {
+    padding: 16px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    transition: transform 0.05s ease;
+  }
+
+  button.calc-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  button.role-number {
+    background: var(--color-number-bg);
+    color: var(--color-black);
+  }
+
+  button.role-function {
+    background: var(--color-function-bg);
+    color: var(--color-white);
+  }
+
+  button.role-equal {
+    background: var(--color-equal-bg);
+    color: var(--color-white);
+  }
+
+  button.calc-btn:disabled {
+    background: var(--color-disabled-bg);
+    color: var(--color-gray);
+    box-shadow: none;
+    cursor: default;
+  }
+
+  /* PyScriptの起動待ちインジケータ（読み込み中は非表示にしておく） */
+  py-splashscreen {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<div id="calculator">
+  <div id="display">
+    <div id="display-sub"></div>
+    <div id="display-main">0</div>
+  </div>
+  <div id="buttons"></div>
+</div>
+
+<!--
+  config: pyscript.json の "files" 設定で、同階層の .py ファイルを
+          Pyodideの仮想ファイルシステムへ配置してから main.py を実行する。
+  計算ロジック本体は main.py からそのままimportして使う。
+-->
+<script type="py" config="./pyscript.json" src="./main.py"></script>
+
+</body>
+</html>

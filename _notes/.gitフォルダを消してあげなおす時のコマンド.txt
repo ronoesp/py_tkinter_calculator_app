@@ -1,0 +1,12 @@
+■.gitフォルダとは
+rootとなるフォルダに置かれる。
+いろいろな情報が入っている（履歴など）
+基本的に削除してはいけない。
+
+■コマンド
+Remove-Item -Recurse -Force C:\Users\user\.git
+cd "project フォルダの正しいパス"
+git init
+git remote add origin https://github.com/ronoesp/py_tkinter_calculator_app
+git add -A
+git commit -m "フォルダ構成を再編成（Desktop/Webに分割）"

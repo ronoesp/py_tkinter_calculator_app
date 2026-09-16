@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電卓</title>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.1/full/pyodide.js"></script>
+<style>
+  :root {
+    --color-number-bg: #EBFEFF;
+    --color-function-bg: #647879;
+    --color-equal-bg: #0D05D9;
+    --color-disabled-bg: #eeeeee;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray: #aaaaaa;
+    --color-display-bg: #ffffff;
+    --color-display-sub-fg: gray;
+    --color-display-main-fg: #000000;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d9d9d9;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  #calculator {
+    width: 320px;
+    max-width: 92vw;
+    background: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    padding: 14px;
+  }
+
+  #loading {
+    text-align: center;
+    color: #555;
+    padding: 40px 0;
+    font-size: 14px;
+  }
+
+  #app { display: none; }
+
+  #display {
+    background: var(--color-display-bg);
+    border: 2px solid var(--color-black);
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding: 6px 10px;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  #display-sub {
+    font-size: 13px;
+    color: var(--color-display-sub-fg);
+    text-align: right;
+    min-height: 16px;
+    word-break: break-all;
+  }
+
+  #display-main {
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--color-display-main-fg);
+    text-align: right;
+    word-break: break-all;
+  }
+
+  #buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  button.calc-btn {
+    padding: 16px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    transition: transform 0.05s ease;
+  }
+
+  button.calc-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  button.role-number {
+    background: var(--color-number-bg);
+    color: var(--color-black);
+  }
+
+  button.role-function {
+    background: var(--color-function-bg);
+    color: var(--color-white);
+  }
+
+  button.role-equal {
+    background: var(--color-equal-bg);
+    color: var(--color-white);
+  }
+
+  button.calc-btn:disabled {
+    background: var(--color-disabled-bg);
+    color: var(--color-gray);
+    box-shadow: none;
+    cursor: default;
+  }
+</style>
+</head>
+<body>
+
+<div id="calculator">
+  <div id="loading">読み込み中...</div>
+
+  <div id="app">
+    <div id="display">
+      <div id="display-sub"></div>
+      <div id="display-main">0</div>
+    </div>
+    <div id="buttons"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// 画面定義（元の calculator_gui.py / gui_style.py の内容を移植）
+// ============================================================
+const BUTTON_NAMES = [
+  ["%", "CE", "C", "x"],
+  ["1/X", "X2", "\u221A", "/"],
+  ["7", "8", "9", "*"],
+  ["4", "5", "6", "-"],
+  ["1", "2", "3", "+"],
+  ["\u00B1", "0", ".", "="],
+];
+
+const ROLE_NUMBER = ["0","1","2","3","4","5","6","7","8","9","\u00B1","."];
+const ROLE_EQUAL = ["="];
+const ERROR_ENABLED = ["0","1","2","3","4","5","6","7","8","9","CE","C","x","="];
+
+// 計算ロジック本体(.pyファイル)。中身は一切変更せず、そのまま読み込む。
+const PY_FILES = [
+  "calculator_phase.py",
+  "calculator_parameter.py",
+  "calculator_system.py",
+  "phase_handlers.py",
+  "calculator_manager.py",
+  "commons/__init__.py",
+  "commons/num_formatter.py",
+];
+
+let pyodide;
+let pushButton;
+let buttonEls = {};
+
+async function loadPythonLogic() {
+  pyodide = await loadPyodide();
+
+  pyodide.FS.mkdir("calc");
+  pyodide.FS.mkdir("calc/commons");
+
+  for (const path of PY_FILES) {
+    const res = await fetch(path);
+    if (!res.ok) {
+      throw new Error(`Pythonファイルの読み込みに失敗しました: ${path}`);
+    }
+    const text = await res.text();
+    pyodide.FS.writeFile(`calc/${path}`, text);
+  }
+
+  await pyodide.runPythonAsync(`
+import sys
+sys.path.insert(0, "calc")
+
+import json
+from calculator_manager import CalculatorManager
+from calculator_phase import Phase
+
+manager = CalculatorManager()
+
+def push_button(order):
+    manager.order = order
+    manager.execution()
+    result = {
+        "main": manager.create_message_main(),
+        "sub": manager.create_message_sub(),
+        "error": manager.phase == Phase.ERROR,
+    }
+    manager.order = ""
+    return json.dumps(result, ensure_ascii=False)
+  `);
+
+  pushButton = pyodide.globals.get("push_button");
+}
+
+// ============================================================
+// UI構築
+// ============================================================
+function buildButtons() {
+  const container = document.getElementById("buttons");
+
+  BUTTON_NAMES.forEach((row) => {
+    row.forEach((name) => {
+      const btn = document.createElement("button");
+      btn.className = "calc-btn";
+      btn.textContent = name;
+
+      if (ROLE_NUMBER.includes(name)) {
+        btn.classList.add("role-number");
+      } else if (ROLE_EQUAL.includes(name)) {
+        btn.classList.add("role-equal");
+      } else {
+        btn.classList.add("role-function");
+      }
+
+      btn.addEventListener("click", () => onPress(name));
+      buttonEls[name] = btn;
+      container.appendChild(btn);
+    });
+  });
+}
+
+function onPress(order) {
+  const resultStr = pushButton(order);
+  const result = JSON.parse(resultStr);
+
+  document.getElementById("display-main").textContent = result.main;
+  document.getElementById("display-sub").textContent = result.sub;
+
+  applyErrorLock(result.error);
+}
+
+function applyErrorLock(isError) {
+  Object.entries(buttonEls).forEach(([name, btn]) => {
+    if (isError && !ERROR_ENABLED.includes(name)) {
+      btn.disabled = true;
+    } else {
+      btn.disabled = false;
+    }
+  });
+}
+
+async function main() {
+  buildButtons();
+  try {
+    await loadPythonLogic();
+  } catch (e) {
+    document.getElementById("loading").textContent =
+      "初期化に失敗しました: " + e.message;
+    return;
+  }
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("app").style.display = "block";
+}
+
+main();
+</script>
+
+</body>
+</html>

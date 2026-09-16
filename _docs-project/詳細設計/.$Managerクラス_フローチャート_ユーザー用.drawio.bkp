@@ -1,0 +1,31 @@
+<mxfile host="Electron">
+  <diagram name="ページ-1" id="0lre5mAnb10-njgSfHkg">
+    <mxGraphModel dx="824" dy="516" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Y65RCHVT_U7Kof7kWtuz-3" edge="1" parent="1" source="Y65RCHVT_U7Kof7kWtuz-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Y65RCHVT_U7Kof7kWtuz-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Y65RCHVT_U7Kof7kWtuz-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="開始" vertex="1">
+          <mxGeometry height="60" width="90" x="340" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Y65RCHVT_U7Kof7kWtuz-2" parent="1" style="whiteSpace=wrap;html=1;" value="ボタン押下" vertex="1">
+          <mxGeometry height="40" width="105" x="332.5" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="Y65RCHVT_U7Kof7kWtuz-4" parent="1" style="whiteSpace=wrap;html=1;" value="基礎数値作成ボタン&lt;div&gt;「0~9」「.」&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="135" x="40" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Y65RCHVT_U7Kof7kWtuz-5" parent="1" style="whiteSpace=wrap;html=1;" value="符号反転ボタン&lt;div&gt;「±」&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="135" x="210" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Y65RCHVT_U7Kof7kWtuz-6" parent="1" style="whiteSpace=wrap;html=1;" value="特種計算ボタン&lt;div&gt;「1/x」「X2」「√」&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="135" x="380" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Y65RCHVT_U7Kof7kWtuz-7" parent="1" style="whiteSpace=wrap;html=1;" value="百分率計算ボタン&lt;div&gt;「%」&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="135" x="550" y="190" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

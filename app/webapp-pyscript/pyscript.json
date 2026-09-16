@@ -1,0 +1,11 @@
+{
+  "files": {
+    "./calculator_phase.py": "./calculator_phase.py",
+    "./calculator_parameter.py": "./calculator_parameter.py",
+    "./calculator_system.py": "./calculator_system.py",
+    "./phase_handlers.py": "./phase_handlers.py",
+    "./calculator_manager.py": "./calculator_manager.py",
+    "./commons/__init__.py": "./commons/__init__.py",
+    "./commons/num_formatter.py": "./commons/num_formatter.py"
+  }
+}
