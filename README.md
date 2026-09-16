@@ -3,7 +3,7 @@
 Tkinterで作成したPython電卓アプリと、そのWeb版（2種類）をまとめたリポジトリです。
 
 **公開ページ（3種類を選べる案内ページ）**
-https://ronoesp.github.io/py_tkinter_calculator_app/app
+https://ronoesp.github.io/py_tkinter_calculator_app
 
 **PC版（インストーラー）のダウンロード**
 https://github.com/ronoesp/py_tkinter_calculator_app/releases/latest
