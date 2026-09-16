@@ -11,6 +11,7 @@ import sys
 sys.path.insert(0, ".")  # pyscript.jsonで配置したファイルを確実にimportできるようにする
 
 from pyscript import document
+from pyodide.ffi import create_proxy
 
 from calculator_manager import CalculatorManager
 from calculator_phase import Phase
@@ -32,6 +33,7 @@ ERROR_ENABLED = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "CE", "C", "x
 
 manager = CalculatorManager()
 button_els = {}
+_event_proxies = []  # create_proxyで作ったプロキシがGCされないよう保持しておく
 
 display_main = document.getElementById("display-main")
 display_sub = document.getElementById("display-sub")
@@ -75,7 +77,9 @@ def build_buttons():
             btn = document.createElement("button")
             btn.textContent = name
             btn.className = f"calc-btn {role_class(name)}"
-            btn.addEventListener("click", make_handler(name))
+            proxy = create_proxy(make_handler(name))
+            _event_proxies.append(proxy)
+            btn.addEventListener("click", proxy)
             button_els[name] = btn
             buttons_container.appendChild(btn)
 
