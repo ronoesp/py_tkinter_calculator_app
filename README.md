@@ -1,3 +1,10 @@
+# バグ修正予定
+√99の後、演算子（/など)を入れるとエラー
+
+self.main_str に、self.param.dataA（数値形式）ではなく、self.param.dataA_str（文字形式「√99」）が入っている
+
+※どこで設定されているのか確認＆修正予定
+
 # 電卓アプリ（py_tkinter_calculator_app）
 
 Tkinterで作成したPython電卓アプリと、そのWeb版（2種類）をまとめたリポジトリです。

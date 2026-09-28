@@ -46,6 +46,7 @@ class CalculatorSystem:
         """入力可能文字数を超えていないかチェック
         （整数値が実質0, "." , "-" は入力文字数に含めない）。
         """
+        
         check1 = int(Decimal(data)) == 0
         check2 = "." in data
         check3 = "-" in data

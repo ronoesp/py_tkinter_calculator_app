@@ -82,11 +82,21 @@ class CalculatorManager:
         # （ここをスキップしないと Decimal("無効な入力です") 等でエラーになる）
         if self.phase == Phase.ERROR:
             return self.main_str
+        
+        
+        print("1 : " + self.param.dataA)
+        print("2 : " + self.param.dataA_str)
+        print("3 : " + self.main_str)
+        
+        
 
         if self.main_str == "":
             pass
         elif not csystem.check_num_limit(self.main_str, self.num_length_limit + 1):
             self.main_str = csystem.exponential_notation(self.main_str, self.num_length_limit)
+        
+        print("4 : " + self.main_str)
+        
         return self.main_str
 
     def create_message_sub(self) -> str:
